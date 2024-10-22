@@ -57,14 +57,3 @@ resource "aws_nat_gateway" "ngw_1" {
     subnet_id = aws_subnet.public-subnet.id
 
 }
-
-resource "aws_eip" "eip_1" {
-  vpc = true
-  depends_on = [aws_internet_gateway.demo-igw]
-}
-
-resource "aws_route_table_association" "rta-1" {
-  route_table_id = aws_route_table.public-route-table.id
-  subnet_id = aws_subnet.public-subnet.id
-}
-
